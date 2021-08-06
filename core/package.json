@@ -1,0 +1,23 @@
+{
+  "name": "learn-javascript",
+  "version": "1.0.0",
+  "description": "core javascript",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eviltester/learn-javascript.git"
+  },
+  "author": "alan richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eviltester/learn-javascript/issues"
+  },
+  "homepage": "https://github.com/eviltester/learn-javascript#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "scripts": {
+    "test": "jest",
+    "testv": "jest --verbose"
+  }
+}
