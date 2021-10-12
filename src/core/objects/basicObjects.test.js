@@ -42,6 +42,16 @@ test('properties can be added to objects after creation', () => {
     expect(anObject["b"]).toBe(2);
 });
 
+test('Properties can be removed from an object with delete', () => {
+
+    var anObject={a:2};
+
+    delete anObject.a;
+
+    expect(anObject.a).toBe(undefined);
+});
+
+
 test('objects can be created using shorthand notation', () => {
 
     const a=1, b=2, c=3;
