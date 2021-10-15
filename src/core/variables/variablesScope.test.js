@@ -56,17 +56,6 @@ test('can create new variables of same name as one outside block', ()=>{
     expect(outsideConst).toBe(2);
 });
 
-test('can create new variables of same name as one outside block', ()=>{
-
-    const outside = 1;
-
-    {
-        const outside=2;
-        expect(outside).toBe(2);
-    }
-
-    expect(outside).toBe(1);
-});
 
 test('instantiated but not declared variables are var', ()=>{
 

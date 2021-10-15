@@ -22,7 +22,6 @@ describe("We can embed describes",()=>{
         test('nested test2 in a describe', () => {
             expect(true).toBe(true);
         });
-
     });
 });
 
