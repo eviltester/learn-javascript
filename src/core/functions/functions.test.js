@@ -16,7 +16,6 @@ test('functions can take arguments', () => {
     expect(add(1,2)).toBe(3);
 });
 
-
 test('function arguments can have a default', () => {
 
     function add(num1=1, num2=2){

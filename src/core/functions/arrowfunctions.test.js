@@ -16,7 +16,6 @@ test('arrow functions can take arguments', () => {
     expect(add(1,2)).toBe(3);
 });
 
-
 test('arrow function arguments can have a default', () => {
 
     const add = (num1=1, num2=2)=>{
@@ -26,7 +25,6 @@ test('arrow function arguments can have a default', () => {
     expect(add(1)).toBe(3);
     expect(add(2,3)).toBe(5);
 });
-
 
 test('arrow functions can support a one line syntax without scope braces', () => {
 
