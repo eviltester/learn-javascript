@@ -27,7 +27,6 @@ test('function expressions can have a default', () => {
     expect(add(2,3)).toBe(5);
 });
 
-
 test('DIFFERENCE BETWEEN FUNCTIONS: function expressions can not be used before the declaration - variables are not hoisted', () => {
 
     try{
