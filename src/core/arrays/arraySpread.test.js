@@ -33,7 +33,7 @@ test('spread ... an array into individual elements', () => {
 });
 
 
-test('spread ... can be used as the "Rest element" during destructuring to capture values', () => {
+test('... can be used as the "Rest element" during destructuring to capture values', () => {
 
     const myArray = [1, 2, 3, 4];
 
