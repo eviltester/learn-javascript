@@ -89,7 +89,55 @@ test('Object.create requires a prototype', () => {
     expect(aCreatedObject.a).toBe(1);
 });
 
+test('functions can be used as objects', () => {
 
+    function Position(x, y){
+        this.x=x;
+        this.y=y;
+    }
+
+    const xyPos = new Position(10,13);
+
+    expect(typeof xyPos).toBe("object");
+    expect(xyPos.x).toBe(10);
+});
+
+
+test('functions as objects can have methods declared using this with a function', () => {
+
+    function Position(x, y){
+        this.x=x;
+        this.y=y;
+
+        this.asArray = function(){
+            return [this.x,this.y];
+        }
+    }
+
+    const xyPos = new Position(10,13);
+
+    expect(typeof xyPos).toBe("object");
+    expect(xyPos.x).toBe(10);
+    expect(xyPos.asArray()[0]).toBe(10);
+});
+
+test('functions as objects can have methods declared using the prototype', () => {
+
+    function Position(x, y){
+        this.x=x;
+        this.y=y;
+    }
+
+    Position.prototype.asArray = function(){
+        return [this.x,this.y];
+    }
+
+    const xyPos = new Position(10,13);
+
+    expect(typeof xyPos).toBe("object");
+    expect(xyPos.x).toBe(10);
+    expect(xyPos.asArray()[0]).toBe(10);
+});
 
 /*
 
