@@ -1,5 +1,5 @@
 describe('There are many different ways to create objects', ()=>{
-    test('an empty object can be created using braces', () => {
+    test('an empty object can be created using braces: o={};', () => {
 
         // this is called the 'literal' or 'initialization' notation
         
@@ -8,14 +8,14 @@ describe('There are many different ways to create objects', ()=>{
         expect(typeof anObject).toBe("object");
     });
 
-    test('an object can have properties', () => {
+    test('an object can have properties: o.a', () => {
 
         var anObject={a:2};
 
         expect(anObject.a).toBe(2);
     });
 
-    test('properties can be accessed with an index notation', () => {
+    test('properties can be accessed with an index notation: o["a"]', () => {
 
         var anObject={a:2};
 
@@ -29,7 +29,7 @@ describe('There are many different ways to create objects', ()=>{
         expect(anObject.a).toBe(undefined);
     });
 
-    test('properties can be added to objects after creation', () => {
+    test('properties can be added to objects after creation: o.b=2', () => {
 
         const anObject = {};
 
@@ -199,6 +199,89 @@ describe('we can access and object\'s keys and values', ()=>{
     });
 
 });
+
+describe('we can copy object properties with .assign', ()=>{
+
+    test('Copy an object properties to another with Object.assign', () => {
+
+        const anObject= {a:1, b:2};
+        
+        const copyObject = {};
+        
+        Object.assign(copyObject, anObject);
+
+        expect(copyObject.a).toBe(1);
+        expect(copyObject.b).toBe(2);
+
+        copyObject.a=3;
+
+        expect(copyObject.a).toBe(3);
+        expect(anObject.a).toBe(1);
+
+    });
+
+    test('Existing duplicate properties are overwritten', () => {
+
+        const anObject= {a:1, b:2};
+        
+        const copyObject = {a:3};
+        
+        Object.assign(copyObject, anObject);
+
+        expect(copyObject.a).toBe(1);
+        expect(copyObject.b).toBe(2);
+
+    });
+
+    test('Existing exclusive properties are untouched', () => {
+
+        const anObject= {a:1, b:2};
+        
+        const copyObject = {c:3};
+        
+        Object.assign(copyObject, anObject);
+
+        expect(copyObject.a).toBe(1);
+        expect(copyObject.b).toBe(2);
+        expect(copyObject.c).toBe(3);
+
+    });
+
+    test('.assign is not a recursive deep copy, nested object references are copied not recreated', () => {
+
+        const anObject= {a:1, b:{c:2}};        
+        const copyObject = {};
+        
+        Object.assign(copyObject, anObject);
+
+        expect(copyObject.a).toBe(1);
+        expect(copyObject.b.c).toBe(2);
+
+        anObject.b.c=3;
+        expect(copyObject.b.c).toBe(3);
+
+    });
+
+    test('Multiple objects can be merged', () => {
+
+        const object1= {a:1, b:2};
+        const object2= {c:3, d:4};
+        const object3= {e:5, f:6};
+        
+        const copyObject = {};
+        
+        Object.assign(copyObject, object1, object2, object3);
+
+        expect(Object.keys(copyObject).length).toBe(6);
+        expect(copyObject.a).toBe(1);
+        expect(copyObject.c).toBe(3);
+        expect(copyObject.e).toBe(5);
+
+    });
+
+});
+
+
 /*
 
 Reference:
