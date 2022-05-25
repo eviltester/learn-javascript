@@ -1,5 +1,6 @@
 module.exports = {
-    // parts of the project demonstrate 'bad' practices so we need to switch off use strict
+    // parts of the project demonstrate 'bad'
+    // practices so we need to switch off use strict
     sourceType: "script",
     presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
 
